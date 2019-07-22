@@ -52,7 +52,7 @@ class Student:
             self.username = row_dict[args.student_username]
             self.majors = set(
                 major.strip() for major
-                in row_dict[args.student_majors].split(',') # FIXME
+                in row_dict[args.student_majors].split(args.program_delimiter)
                 if major.strip()
             )
         except KeyError as err:
@@ -67,7 +67,7 @@ class Student:
                     f'WARNING: Student {self.first_name} {self.last_name}',
                     f'has a major {major}',
                     f'that is not in the divisions file {args.divisions_file}.',
-                    'Make sure that the majors are semi-colon (;) separated!',
+                    'Make sure that the majors are separated by a {args.program_delimiter} !',
                 ]))
         self.minors = set()
         '''
@@ -159,6 +159,9 @@ def create_arg_parser():
     )
     group.add_argument('--student-majors', default='Majors',
         help='The name of the column with the student majors.',
+    )
+    group.add_argument('--program-delimiter', default=',',
+        help='The punctuation used to delimit multiple majors/minors.',
     )
     # matching options
     group = arg_parser.add_argument_group('Matching Options', gooey_options={'columns': 1})
