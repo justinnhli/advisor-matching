@@ -1,2 +1,2 @@
 Gooey==1.0.2
-PyInstaller==3.5
+PyInstaller==3.6
