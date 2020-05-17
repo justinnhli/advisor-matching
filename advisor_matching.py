@@ -104,19 +104,16 @@ def create_arg_parser():
     # input/output files
     group = arg_parser.add_argument_group('Input/Output', gooey_options={'columns': 1})
     group.add_argument(dest='divisions_file', widget='FileChooser', help=(
-        'The CSV with division information. '
-        'The CSV must have the columns specified in the Division Columns tab.'
+        'The CSV with division information; see the Division Columns tab for details.'
     ))
     group.add_argument(dest='professors_file', widget='FileChooser', help=(
-        'The CSV with professor information. '
-        'The CSV must have the columns specified in the Professor Columns tab.'
+        'The CSV with professor information; see Professor Columns tab for details.'
     ))
     group.add_argument(dest='students_file', widget='FileChooser', help=(
-        'The CSV with student information.'
-        'The CSV must have the columns specified in the Student Columns tab.'
+        'The CSV with student information; see the Student Columns tab for details.'
     ))
     group.add_argument(dest='output_dir', default='~/Desktop/', widget='DirChooser',
-        help='The folder to put the output.csv',
+        help='The folder to put the output.csv.',
     )
     # divisions data
     group = arg_parser.add_argument_group('Division Columns', gooey_options={'columns': 1})
